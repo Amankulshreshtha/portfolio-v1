@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #ebebd8;
+  --color-plate: #e1e2cb;
+  --color-moss: #637545;
+  --color-ink: #455230;
+  --color-sage: #9ba685;
+  /* survey flagging-tape orange: actions and benchmarks */
+  --color-flag: #c2410c;
+  /* topo-map water blue: contrast ground and secondary ink */
+  --color-water: #1f4e63;
+  --color-water-soft: #8fb8c9;
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Martian Mono", ui-monospace, monospace;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-marquee-rev: marquee 46s linear infinite reverse;
+  @keyframes marquee {
+    to { transform: translateX(-50%); }
+  }
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
+body { background: var(--color-paper); color: var(--color-ink); font-family: var(--font-sans); }
+::selection { background: var(--color-moss); color: var(--color-paper); }
+:focus-visible { outline: 2px solid var(--color-moss); outline-offset: 3px; border-radius: 4px; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .animate-marquee, .animate-marquee-rev { animation: none !important; }
+}
